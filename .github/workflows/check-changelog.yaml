@@ -1,0 +1,74 @@
+# GitHub Actions Workflow: Check Changelog
+#
+# This workflow checks if the CHANGELOG.md file has been updated in pull requests
+# Can be skipped by adding '[skip-changelog]' to the PR title or description
+name: Check Changelog
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+# Cancel in-progress runs when a new run is triggered
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-changelog:
+    name: Verify Changelog Update
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if changelog check should be skipped
+        id: skip-check
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          if [[ "$PR_TITLE" == *"[skip-changelog]"* ]] || [[ "$PR_BODY" == *"[skip-changelog]"* ]]; then
+            echo "Skipping changelog check as requested via [skip-changelog]"
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "### Changelog Check Skipped" >> $GITHUB_STEP_SUMMARY
+            echo "The changelog check was skipped because \`[skip-changelog]\` was found in the PR title or description." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+      - name: Checkout repository
+        if: steps.skip-check.outputs.skip != 'true'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch full history to compare with base branch
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Fetch base branch
+        if: steps.skip-check.outputs.skip != 'true'
+        run: |
+          git fetch origin ${{ github.base_ref }}:refs/remotes/origin/${{ github.base_ref }}
+      - name: Check for changelog update
+        if: steps.skip-check.outputs.skip != 'true'
+        shell: bash
+        run: |
+          echo "Comparing changes between base branch and PR..."
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
+          echo ""
+          if echo "$CHANGED_FILES" | grep -q "^CHANGELOG.md$"; then
+            echo "Changelog has been updated."
+            exit 0
+          else
+            echo "CHANGELOG.md has not been updated."
+            echo ""
+            echo "Please update CHANGELOG.md with details about your changes."
+            echo ""
+            echo "If this PR doesn't require a changelog entry,"
+            echo "add '[skip-changelog]' to the PR title or description."
+            exit 1
+          fi

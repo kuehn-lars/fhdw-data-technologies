@@ -1,0 +1,27 @@
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swx
+
+# Editor folders
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Cache directories
+.cache/
+node_modules/
+
+# macOS metadata
+.AppleDouble
+.LSOverride
+
+# Windows metadata
+desktop.ini
