@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.3.0
+
+- Added instructions on how to use Visual Studio Code with the MSSQL Extension
+
 ## Version 0.2.0
 
 - Added macOS guide on how to set up the MSSQL 2022 Express Server on macOS
