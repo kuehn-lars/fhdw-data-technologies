@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.5.0
+
+- Added pre-commit
+
 ## Version 0.4.0
 
 - Added instructions on hot to set up the MSSQL 2022 Express Server on Windows
