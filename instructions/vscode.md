@@ -17,7 +17,7 @@ This guide shows you how to establish a connection to Microsoft SQL Server Expre
 
 1. **Install the SQL Server (mssql) Extension**  
    Open Visual Studio Code, go to the Extensions menu, and install the "SQL Server (mssql)" extension by Microsoft.  
-   ![Visual Studio Code showing the SQL Server (mssql) Extension](images/mssql_extension.png)
+   ![Visual Studio Code showing the SQL Server (mssql) Extension](images/vscode_mssql_extension_macos.png)
 
 2. **Add a SQL Server Connection**  
    In the new "SQL Server" menu on the left sidebar, click "Add Connection" and enter your connection details. For help, see:  
@@ -26,7 +26,7 @@ This guide shows you how to establish a connection to Microsoft SQL Server Expre
 
 3. **Connect to the Server**  
    Click "Connect." Once connected, you should see a confirmation like this:  
-   ![Visual Studio Code showing the established connection](images/vscode_established_connection.png)
+   ![Visual Studio Code showing the established connection](images/vscode_established_connection_macos.png)
 
 4. **Run SQL Queries**  
    Open a `.sql` file, then click the "Plug" button or use the shortcut `Ctrl + Shift + E`. Select your MSSQL Server connection.
