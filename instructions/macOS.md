@@ -24,7 +24,7 @@ I chose the 2022 version of Microsoft SQL Server because its Docker container is
     ```bash
     docker pull mcr.microsoft.com/mssql/server:2025-latest
     ```
-4. Start the Docker container with the following command. You can use the password as shown:
+4. Start the Docker container with the following command. Please use the password as shown:
     ```bash
     docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=yourPassword123?" -p 1433:1433 --name sql2022express --hostname sql2022express -v ~/docker-data/sqlserver:/var/opt/mssql -d mcr.microsoft.com/mssql/server:2022-latest
     ```
@@ -36,17 +36,17 @@ I chose the 2022 version of Microsoft SQL Server because its Docker container is
     ![Docker Desktop showing running SQL Server container](images/container_running.png)
 
 7. Start Visual Studio Code and go to the Extensions menu to install the "SQL Server (mssql)" extension by Microsoft.
-    ![Visual Studio Code showing the SQL Server (mssql) Extension](images/mssql_extension.png)
+    ![Visual Studio Code showing the SQL Server (mssql) Extension](images/vscode_mssql_extension_macos.png)
 
 8. In the new "SQL Server" menu on the left in Visual Studio Code, click "Add Connection" and enter the following values:
-    ![Visual Studio Code showing the Connection Dialog window](images/vscode_connection.png)
+    ![Visual Studio Code showing the Connection Dialog window](images/vscode_connection_macos.png)
 
     - **Server name**: This is can be seen as the server url. Therefore it is "localhost" + "," + "_PORT_". If you have followed the docker run command it will be **localhost,1433**.
     - **User name**: We use "sa" here. This stands for system administrator.
     - **Password**: This is the password you've set when running the docker container.
 
 9. Click "Connect." The connection should be established and look like this:
-    ![Visual Studio Code showing the established connection](images/vscode_established_connection.png)
+    ![Visual Studio Code showing the established connection](images/vscode_established_connection_macos.png)
 
 10. When finished, you can stop the Docker container via Docker Desktop. You do not need to use the terminal again. You can restart the container from Docker Desktop. If the container causes issues, you can delete it entirely. Your changes to SQL Server will be saved because of the volume.
 

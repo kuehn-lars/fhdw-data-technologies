@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.4.0
+
+- Added instructions on hot to set up the MSSQL 2022 Express Server on Windows
+
 ## Version 0.3.0
 
 - Added instructions on how to use Visual Studio Code with the MSSQL Extension
