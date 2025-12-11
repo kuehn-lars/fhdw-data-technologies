@@ -1,8 +1,6 @@
-
-
 # Windows Installation Guide: Microsoft SQL Server 2022 Express
 
-This guide shows you how to set up Microsoft SQL Server 2022 on your local Windows machine.
+This guide shows you how to set up Microsoft SQL Server 2022 on your local Windows machine for use with Visual Studio Code.
 
 
 ### Why use 2022 instead of 2025?
@@ -36,7 +34,7 @@ I chose the 2022 version of Microsoft SQL Server because it is more stable, and 
 
 4. After that, you should have a terminal open where you see a new line starting with `1>`, allowing you to configure your SQL Server.
 
-5. Set your system administrator (SA) password with this command in the terminal:
+5. Set your system administrator (SA) password with this command in the terminal. Please use the password as shown (it must meet SQL Server's complexity requirements):
     ```bash
     ALTER LOGIN sa WITH PASSWORD = 'yourPassword123?';
     GO
@@ -62,7 +60,7 @@ I chose the 2022 version of Microsoft SQL Server because it is more stable, and 
 9. Locate the "SQL Server (SQLEXPRESS)" service. Right-click on the service and then restart it.
 
     ![SQL Server Configuration Manager](images/sql_server_configuration_manager.png)
- 
+
 10. Start Visual Studio Code and go to the Extensions menu. Install the "SQL Server (mssql)" extension by Microsoft.
 
     ![Visual Studio Code showing the SQL Server (mssql) Extension](images/vscode_mssql_extension_windows.png)
