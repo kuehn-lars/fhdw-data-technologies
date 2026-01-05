@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.5.1
+
+- Added windows file paths to SQL Server Configuration Manager
+
 ## Version 0.5.0
 
 - Added pre-commit

@@ -55,7 +55,9 @@ I chose the 2022 version of Microsoft SQL Server because it is more stable, and 
 
 7. You can exit the terminal with `exit()` or simply close it now.
 
-8. Open the SQL Server Configuration Manager on your Windows machine. This application is installed with the installation script.
+8. Open the SQL Server Configuration Manager on your Windows machine. This application is installed with the installation script. This application can be usually found when searching for it, otherwise it is located under one of these paths:
+    - `C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft SQL Server 2022\Konfigurationstools`
+    - `C:\Windows\SysWOW64`
 
 9. Locate the "SQL Server (SQLEXPRESS)" service. Right-click on the service and then restart it.
 
