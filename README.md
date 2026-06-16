@@ -1,6 +1,6 @@
 # FHDW-Data-Technologies
 
-This repository helps students at the Fachhochschule der Wirtschaft (FHDW) set up a working environment for the "Data Technologies" module. It focuses on using Microsoft SQL Server 2022 Express and querying databases from Visual Studio Code on both Windows and macOS.
+This repository helps students at the Fachhochschule der Wirtschaft (FHDW) set up a working environment for the "Data Technologies" module. It focuses on using Microsoft SQL Server 2022 Express and querying databases from Visual Studio Code on Windows, macOS, and Linux.
 
 
 ## Getting Started
@@ -9,6 +9,7 @@ To get started, follow the setup guide for your operating system:
 
 - [Windows setup instructions](instructions/windows.md)
 - [macOS setup instructions](instructions/macOS.md)
+- [Linux setup instructions](instructions/linux.md)
 - [VS Code usage guide](instructions/vscode.md)
 
 You can also try out the example SQL queries in [sql/example.sql](sql/example.sql) once your environment is ready.
@@ -21,6 +22,7 @@ fhdw-data-technologies/
 ├── instructions/            # Setup guides and documentation
 │   ├── macOS.md             # macOS setup instructions
 │   ├── windows.md           # Windows setup instructions
+│   ├── linux.md             # Linux setup instructions
 │   ├── vscode.md            # VS Code setup instructions
 │   └── images/              # Screenshots for setup guides
 └── sql/                     # Example and tutorial SQL scripts
